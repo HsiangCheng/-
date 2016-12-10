@@ -20,7 +20,8 @@
 
     <ul class="am-list am-list-border ">
       {% for title in data %}
-        <li><a href="/name?index={{ loop.index0 }}">{{ loop.index }}. {{ title }}</a></li>
+          <li><p style="padding: 1rem;margin: 0;"><a href="/name?index={{ loop.index0 }}">{{ loop.index }}. {{ title }}</a></p></li>
+{#          <li><a href="/name?index={{ loop.index0 }}">{{ loop.index }}. {{ title }}</a></li>#}
     {% endfor %}
     </ul>
 
