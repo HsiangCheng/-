@@ -31,11 +31,17 @@ def set_name():
 def play_game():
     index = request.args.get('index')
     name = request.args.get('name')
-    # 非正常流程
-    if index is None or name is None:
+    try:
+        index = int(index)
+    except ValueError, err:
         abort(404)
+    # 非正常流程
+    if index is None or name is None or index >= len(titles):
+        abort(404)
+
     # 正常访问
-    return render_template('game.html')
+    title = titles[index].replace('xx', name)
+    return render_template('game.html', title=title)
 
 
 @app.errorhandler(404)
