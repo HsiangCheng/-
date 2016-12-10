@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="format-detection" content="telephone=no">
+		<meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name="full-screen" content="true"/>
+		<meta name="screen-orientation" content="portrait"/>
+		<meta name="x5-fullscreen" content="true"/>
+		<meta name="360-fullscreen" content="true"/>
+	<link rel="stylesheet" href="{{ url_for('static', filename='game/css/article.css') }}">
+  <style type="text/css">
+    .button {
+      display: inline-block;
+      outline: none;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      font: 14px/100% Arial, Helvetica, sans-serif;
+      padding: .5em 2em .55em;
+      text-shadow: 0 1px 1px rgba(0,0,0,.3);
+      -webkit-border-radius: .5em;
+      -moz-border-radius: .5em;
+      border-radius: .5em;
+      -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+      -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+      box-shadow: 0 1px 2px rgba(0,0,0,.2);
+    }
+    .button:hover {
+      text-decoration: none;
+    }
+    .button:active {
+      position: relative;
+      top: 1px;
+    }
+
+    .bigrounded {
+      -webkit-border-radius: 2em;
+      -moz-border-radius: 2em;
+      border-radius: 2em;
+    }
+    /* red */
+    .red {
+      color: #faddde;
+      border: solid 1px #980c10;
+      background: #d81b21;
+      background: -webkit-gradient(linear, left top, left bottom, from(#ed1c24), to(#aa1317));
+      background: -moz-linear-gradient(top,  #ed1c24,  #aa1317);
+      filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ed1c24', endColorstr='#aa1317');
+    }
+    .red:hover {
+      background: #b61318;
+      background: -webkit-gradient(linear, left top, left bottom, from(#c9151b), to(#a11115));
+      background: -moz-linear-gradient(top,  #c9151b,  #a11115);
+      filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#c9151b', endColorstr='#a11115');
+    }
+    .red:active {
+      color: #de898c;
+      background: -webkit-gradient(linear, left top, left bottom, from(#aa1317), to(#ed1c24));
+      background: -moz-linear-gradient(top,  #aa1317,  #ed1c24);
+      filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#aa1317', endColorstr='#ed1c24');
+    }
+
+  </style>
+
+</head>
+<body ontouchstart="">
+	<script>
+		!function(e,t){var n=e.documentElement,i="orientationchange"in window?"orientationchange":"resize",d=(/iPad|iPhone|iPod/.test(navigator.userAgent)&&!window.MSStream,function(){var t=n.clientWidth;t&&(t>=750?(t=750,e.body.style.width="750px"):e.body.style.width=t+"px",n.style.fontSize=100*(t/750)+"px",n.dataset.width=t,n.dataset.percent=100*(t/750))});d(),e.documentElement.classList.add("iosx"+t.devicePixelRatio),e.addEventListener&&t.addEventListener(i,d,!1)}(document,window)
+	</script>
+
+  <div class="js-analysis" id="id_root" style="display:none">
+  <div class="g-body-wrap">
+  <div class="m-article-content js-article-content" style="max-height:26rem">
+    <article class="text-content js-text-content">
+      <div class="head">
+        <h1 class="article-title" id="id_title"></h1>
+        <h2><span class="source" id="id_from" ></span> <span class="time" id="id_time"></span> <a class="reply js-reply" >跟贴（<span id="id_num_gt"></span>）条</a></h2>
+        <div class="article-digest"></div>
+      </div>
+
+      <div class="text">
+      	  <!-- item1 -->
+          <p id="id_txt_item1"></p>
+          <div class="photoNews">
+            <img class="js-img" id="id_img_item1" src="">
+          </div>
+          <!-- item2 -->
+          <p id="id_txt_item2"></p>
+          <div class="photoNews">
+          	<img class="js-img" id="id_img_item2" src="">
+          </div>
+
+      </div>
+    </article>
+
+  </div>
+
+  <div class="m-comment" style="display: block;">
+      <div class="u-title"> 热门跟贴 </div>
+      <div class="comment-list">
+        <div class="u-item">
+          <div class="item-title">
+            <div class="avatar"></div>
+            <div class="name"><p class="ellipsis" id="id_name_ht1"></p></div>
+            <div class="ding"><span id="id_num_z1"></span>顶</div>
+          </div>
+          <div class="comment-content">
+            <div class="comment-text" id="id_content_ht1">
+
+            </div>
+          </div>
+          <div class="comment-more">更多</div>
+        </div>
+
+        <div class="u-item">
+          <div class="item-title">
+            <div class="avatar"></div>
+            <div class="name"><p class="ellipsis" id="id_name_ht2"></p></div>
+            <div class="ding"><span id="id_num_z2"></span>顶</div>
+          </div>
+          <div class="comment-content">
+            <div class="comment-text" id="id_content_ht2">
+
+            </div>
+          </div>
+          <div class="comment-more">更多</div>
+        </div>
+
+      </div>
+    </div>
+{#    <br/><br/>#}
+{#     <div style="text-align: center; display:none" id="id_testIndex"></div>#}
+{#     <div style="text-align: center;"> <a  onclick="onClickShare();" class="button red bigrounded">  &nbsp分享给朋友 &nbsp </a> </div>#}
+{#     <br/>#}
+{#     <div style="text-align: center;"> <a  onclick="onClickGoToIndex();" class="button red bigrounded">制作没品新闻</a> </div>#}
+  </div>
+
+</div>
+<script src="{{ url_for('static', filename='libs/share/h5.zepto.js') }}"></script>
+<script src="{{ url_for('static', filename='libs/share/h5.share.js') }}"></script>
+<script src="{{ url_for('static', filename='libs/statistics/ntes.js') }}"></script>
+<script src="{{ url_for('static', filename='game/js/data.js') }}"></script>
+<script src="{{ url_for('static', filename='game/js/game.js') }}"></script>
+
+</body>
+
+</html>

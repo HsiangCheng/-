@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>新闻列表</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='amaze/css/amazeui.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='amaze/css/app.css') }}">
+</head>
+<body>
+    <h1>捣蛋新闻生成器</h1>
+    <p>
+        使用步骤：
+        <br>
+        1. 在下面的列表中选择你想要生成的新闻，选项中的xx是可以填入的人物名字
+        <br>
+        2. 在新的窗口中输入新闻人物的名字
+        <br>
+        然后就能生成你想要的新闻了。赶快试一下吧！
+    </p>
+
+    <ul class="am-list am-list-border ">
+      {% for title in data %}
+        <li><a href="/name?index={{ loop.index0 }}">{{ loop.index }}. {{ title }}</a></li>
+    {% endfor %}
+    </ul>
+
+</body>
+</html>

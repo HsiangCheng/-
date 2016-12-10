@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>提交名字</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='amaze/css/amazeui.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='amaze/css/app.css') }}">
+</head>
+<body>
+    {% if msg %}
+        <p style="color: #f8504d">{{ msg }}</p>
+    {% endif %}
+    <form class="am-form" name="input" action="/name" method="get">
+        <fieldset>
+            <legend>捣蛋新闻生成器</legend>
+
+            <div class="am-form-group">
+                <label for="name">新闻人物名字: </label>
+                <input id="name" type="text" name="name">
+                <input type="hidden" name="index" value="{{ index }}">
+            </div>
+            <div class="am-form-group">
+                <input class="am-btn am-btn-primary" type="submit" value="提交">
+            </div>
+        </fieldset>
+    </form>
+
+</body>
+</html>
